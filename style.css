@@ -1,0 +1,504 @@
+/* FONTS */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Oxygen";
+  src: url("../fonts/Oxygen-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* General Styling */
+body {
+  font-family: "Oxygen", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    /* White overlay with transparency */
+      url("images/vecteezy_pastel-pink-elegant-alcohol-ink-design-with-gold-glitter_6616912.jpg")
+      no-repeat center center fixed; /* Background image */
+  height: 100%; /* Make sure the background covers the full page */
+}
+
+/* Centered Page Wrapper */
+.page-wrapper {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styling */
+header {
+  font-family: "Playfair Display", serif;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f2d1d9;
+  padding: 10px 0;
+  position: relative;
+  z-index: 100;
+  max-width: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light white with transparency */
+  border-radius: 10px; /* Rounded corners (optional) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+  backdrop-filter: blur(5px);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap; /* Adjust layout for small screens */
+}
+
+/* Logo Styling */
+.logo {
+  max-height: 80px;
+  flex-shrink: 0;
+}
+
+#thejerusalemcanvas {
+  display: none;
+}
+
+/* Navbar Styling */
+.nav-wrapper {
+  display: flex; /* Horizontal alignment */
+  align-items: center; /* Vertical alignment */
+  justify-content: space-between; /* Space between items */
+  max-width: 80%; /* Constrain width of the nav */
+  margin: 0 auto; /* Center the navbar */
+  padding: 10px 0;
+  position: relative; /* Reset to relative for large screens */
+}
+
+.nav-list {
+  display: flex; /* Horizontal menu layout for large screens */
+  flex-direction: row; /* Horizontal alignment */
+  list-style: none; /* Remove bullets */
+  margin: 0;
+  padding: 0;
+  position: static; /* Reset position for large screens */
+  transform: none; /* Reset transform to visible */
+  transition: none; /* No transition on full screens */
+  background: none; /* Remove background for full-screen menu */
+}
+
+.navItem {
+  display: block;
+  margin: 0.4rem 0; /* Small vertical spacing between items */
+  font-size: 1.2rem; /* Adjusted font size to be smaller */
+  font-family: "Playfair Display", serif;
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+}
+.showNavList {
+  transform: translateY(0);
+}
+
+.nav-list li {
+  margin: 0 0.2rem; /* Space between menu items */
+  padding: 0;
+  font-size: 1rem; /* Adjusted font size */
+  text-align: left; /* Align text to the left */
+}
+
+.nav-list a {
+  font-family: "Playfair Display", serif;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+  color: #f2d1d9;
+}
+
+/* Button Styles */
+.nav-list a,
+button,
+.button,
+.contact-form-container button {
+  font-family: "Playfair Display", serif;
+  display: inline-block;
+  background-color: #f2d1d9;
+  color: #333;
+  padding: 10px 20px;
+  margin: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center;
+}
+
+.nav-list a:hover,
+button:hover,
+.button:hover,
+.contact-form-container button:hover {
+  background-color: rgba(245, 196, 196, 0.4);
+  transform: scale(1.05);
+  color: #333;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  position: fixed;
+  z-index: 100;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 10px;
+  border: none;
+  background: #f2d1d9;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Hidden on large screens */
+}
+.hamburger .menuIcon,
+.hamburger .closeIcon {
+  font-size: 30px;
+  color: #333;
+}
+.closeIcon {
+  display: none; /* Hidden by default */
+}
+
+/* Responsive Adjustments (Small Screens) */
+@media (max-width: 1065px) {
+  /* Mobile version of the navbar */
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-list {
+    background-color: white; /* Full white background for the menu */
+    color: #333; /* Text color inside the menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99; /* Ensures it sits above other content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%); /* Start hidden */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    padding: 100px 10px; /* Adds padding at the top of the dropdown */
+  }
+
+  .navItem {
+    display: block;
+    margin: 0; /* Vertical spacing */
+    font-size: 1.2rem;
+    font-family: "Playfair Display", serif;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px 20px;
+    width: 100%; /* Make each item take full width */
+  }
+
+  .nav-list li {
+    margin: 0; /* Remove any default spacing */
+    padding: 0px 20px; /* Add padding to vertically space buttons */
+    text-align: center;
+    width: 100%; /* Make each item take full width */
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+
+  .nav-list a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    width: 100%; /* Make each item take full width */
+    display: block; /* Ensures block layout for full width items */
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(245, 196, 196, 0.4);
+    transform: scale(1.05);
+    color: #333;
+  }
+
+  /* Show the hamburger button */
+  .hamburger {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hamburger .closeIcon {
+    display: block; /* Show the close icon when the menu is open */
+  }
+
+  .logo-container,
+  .nav-wrapper,
+  .media-buttons {
+    margin: 0;
+  }
+
+  .mediaButton {
+    margin: 0 5px;
+  }
+}
+/*------end media query for smaller screens---------------*/
+
+/* Show the menu when toggled */
+.showNavList {
+  transform: translateY(30%); /* Slide the menu into view */
+}
+
+/* Main Content -----------------------------------*/
+main {
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto; /* Center horizontally */
+  max-width: 60%;
+}
+
+p {
+  line-height: 1.8;
+}
+
+/* Section Styling */
+section {
+  padding: 50px;
+  border-top: 2px solid #f2d1d9;
+  margin: 20px auto; /* Add spacing between sections */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light white with transparency */
+  border-radius: 10px; /* Rounded corners (optional) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+  max-width: 60%; /* Optional: Limit the section width for better readability */
+  backdrop-filter: blur(
+    5px
+  ); /* Optional: Adds a blur effect for a modern look */
+  line-height: 1.8; /* Improve paragraph readability */
+}
+
+/* index.html -----------------------------*/
+
+#indexPageWrapper {
+  max-width: 100%;
+}
+
+#indexHeader {
+  max-width: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light white with transparency */
+  border-radius: 10px; /* Rounded corners (optional) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+  backdrop-filter: blur(
+    5px
+  ); /* Optional: Adds a blur effect for a modern look */
+}
+
+#indexBody {
+  text-align: justify;
+  background-image: url("images/jessicaWebsiteBackground.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%; /* Make sure the background covers the full page */
+  margin: 0; /* Remove any default margin */
+  padding: 0;
+  font-family: "Oxygen", sans-serif;
+}
+
+#intro {
+  font-family: "Playfair Display";
+  max-width: 100%;
+  font-size: 3.2rem;
+  font-weight: bold;
+  color: #e3b9c4; /* Light pink text color */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.9); /* Adds depth to the text */
+  display: inline-block; /* Shrinks background to fit text */
+  padding: 10px 20px; /* Padding inside the background */
+}
+
+#introParagraph {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+#intro h1,
+#intro p {
+  position: relative; /* Positions text inside the section */
+  margin: 0 auto; /* Centers text within the section */
+  padding: 30px 0px;
+  animation: scrollDisappear 3s linear forwards; /* Optional effect */
+}
+/*---------------------------------*/
+
+/* My Story Page */
+
+.storyImg {
+  max-width: 80%;
+}
+
+.story-paragraph {
+  text-align: justify;
+  max-width: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light white with transparency */
+  border-radius: 10px; /* Rounded corners (optional) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+  backdrop-filter: blur(
+    5px
+  ); /* Optional: Adds a blur effect for a modern look */
+}
+
+/* Gallery Styling */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+.gallery-item {
+  text-align: center;
+}
+
+.gallery-img {
+  max-width: 100%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-family: "Playfair Display";
+  font-weight: bold;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); /* Light white with transparency */
+  border-radius: 10px; /* Rounded corners (optional) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+  backdrop-filter: blur(5px);
+}
+
+.gallery-text {
+  font-family: "Playfair Display";
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  margin: auto;
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/*Services Page Carousel*/
+.carousel-images {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.carousel-image {
+  max-height: 300px;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contact Form */
+.contact-form-container {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.contact-form-container input,
+.contact-form-container textarea,
+.contact-form-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
