@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Story</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Material Icon CDN -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header id="indexHeader">
+        <div class="header-container">
+          <div class="logo-container">
+            <a href="index.html" class="logo-container">
+              <img
+                src="images/TheJerusalemCanvasLogo.png"
+                alt="The Jerusalem Canvas Logo"
+                class="logo"
+              />
+            </a>
+          </div>
+          <!--<h2 id="thejerusalemcanvas">The Jerusalem Canvas</h2>-->
+          <nav class="nav-wrapper">
+            <ul class="nav-list">
+              <li><a class="navItem" href="index.html">Home</a></li>
+              <li><a class="navItem" href="story.html">Story</a></li>
+              <li><a class="navItem" href="gallery.html">Gallery</a></li>
+              <li><a class="navItem" href="services.html">Services</a></li>
+              <li><a class="navItem" href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="burger">
+            <button class="hamburger">
+              <!-- material icons https://material.io/resources/icons/ -->
+              <i class="menuIcon material-icons">menu</i>
+              <i class="closeIcon material-icons" style="display: none"
+                >close</i
+              >
+            </button>
+          </div>
+          <div class="media-buttons">
+            <a
+              href="https://www.instagram.com/thejerusalemcanvas/"
+              class="button mediaButton"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa fa-instagram"></i
+            ></a>
+            <a
+              href="https://wa.me/message/335AU7PT2NYGJ1"
+              class="button mediaButton"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa fa-whatsapp"></i
+            ></a>
+            <a
+              href="https://thejerusalemcanvas.etsy.com"
+              class="button mediaButton"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Etsy</a
+            >
+          </div>
+        </div>
+      </header>
+      <main>
+        <h1>Welcome to the Gallery!</h1>
+        <p class="gallery-text">
+          Each painting is created stroke by stroke, with thought and care. Our
+          canvases are infused with color and soul. Explore our collections and
+          find what inspires you.
+        </p>
+        <div class="gallery-controls gallery-text">
+          <label for="collection-dropdown">Sort by Collection:</label>
+          <select id="collection-dropdown">
+            <option value="all">All Collections</option>
+            <option value="gedolim">The Gedolim Collection</option>
+            <option value="eretz-yisrael">The Eretz Yisrael Collection</option>
+            <option value="mosaic">The Jewish Mosaic</option>
+            <option value="tefillot">Tefillot</option>
+          </select>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">The Chofetz Chaim</p>
+            <img
+              src="images/JF_001_ChofetzChaim.jpg"
+              alt="The Chafetz Chaim"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Ovadia Yosef</p>
+            <img
+              src="images/JF_002_RavOvadiaScan.jpg"
+              alt="Rav Ovadia Yosef"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Herschel Schachter</p>
+            <img
+              src="images/JF_016_RavSchachterScan.jpg"
+              alt="Rav Herschel Schachter"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Kook</p>
+            <img
+              src="images/JF_023_RavKookScan.jpg"
+              alt="Rav Kook"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">The Lubavitcher Rebbe</p>
+            <img
+              src="images/JF_003_RebbeScan.jpg"
+              alt="The Lubavitcher Rebbe"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Soloveitchik</p>
+            <img
+              src="images/JF_004_RavSoloveitchikScan.jpg"
+              alt="Rav Soloveitchik"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Aharon Leib Shteinman</p>
+            <img
+              src="images/JF_005_RavAharonLeibScan.jpg"
+              alt="Rav Aharon Leib Shteinman"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rabbi Lord Jonathan Sacks</p>
+            <img
+              src="images/JF_009_RabbiSacksScan.jpg"
+              alt="Rabbi Lord Jonathan Sacks"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Moshe Feinstein</p>
+            <img
+              src="images/JF_006_RavMosheScan.jpg"
+              alt="Rav Moshe Feinstein"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="gedolim">
+            <p class="title">Rav Shlomo Carlebach</p>
+            <img
+              src="images/JF_025_Carlebach.jpg"
+              alt="Rav Shlomo Carlebach"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Kotel in Gold</p>
+            <img
+              src="images/JF_037_GoldenKotel.jpg"
+              alt="Kotel in Gold"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Prayers At The Kotel</p>
+            <img
+              src="images/JF_007_prayersAtKotelScan.jpg"
+              alt="Prayers at the Kotel"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Tekes At The Kotel</p>
+            <img
+              src="images/JF_008_.jpg"
+              alt="Tekes at the Kotel"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Ivdu Et Hashem B'Simcha</p>
+            <img
+              src="images/JF_026_DancingWithTorah.jpg"
+              alt="Ivdu Et Hashem B'Simcha"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">A Soldier's Blessing</p>
+            <img
+              src="images/JF_031.jpg"
+              alt="A Soldier's Blessing"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Stroll Through the Old City</p>
+            <img
+              src="images/JF_010_strollThroughOldCityScan.jpg"
+              alt="Stroll Through the Old City"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Od Yeshvu Zikeinim U'Zkeinot</p>
+            <img
+              src="images/JF_034_OdYeshvu.jpg"
+              alt="Od Yeshvu Zikeinim U'Zkeinot"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Maarat Hamachpela</p>
+            <img
+              src="images/JF_011_maaratHamachpela.jpg"
+              alt="Maarat Hamachpela"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Kever Rachel</p>
+            <img
+              src="images/JF_035_KeverRachel.jpg"
+              alt="Kever Rachel"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">The Wolf Shall Dwell With The Lamb</p>
+            <img
+              src="images/JF_024_WolfLambScan.jpg"
+              alt="The Wolf Shall Dwell With The Lamb"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Ein Gedi</p>
+            <img
+              src="images/JF_038_EinGedi.jpg"
+              alt="Ein Gedi"
+              class="gallery-img"
+            />
+            <div class="gallery-item" data-collection="eretz-yisrael">
+              <p class="title">Migdal David</p>
+              <img
+                src="images/JF_039_MigdalDavid.jpg"
+                alt="Migdal David"
+                class="gallery-img"
+              />
+            </div>
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Im Eshkachech</p>
+            <img
+              src="images/JF_014_ImEshkachech.jpg"
+              alt="Im Eshkachech"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">The Sound of Geula</p>
+            <img
+              src="images/JF_030_SoundOfGeula.jpg"
+              alt="The Sound of Geula"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="eretz-yisrael">
+            <p class="title">Standing Before The Gates</p>
+            <img
+              src="images/JF_029_BeforeTheGates.jpg"
+              alt="Standing Before The Gates"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="mosaic">
+            <p class="title">The Aura of Shabbos</p>
+            <img
+              src="images/JF_012_AuraOfShabbos.jpg"
+              alt="The Aura of Shabbos"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="mosaic">
+            <p class="title">Shivat Haminim</p>
+            <img
+              src="images/JF_013_ShivatHaminim.jpg"
+              alt="Shivat Haminim"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="mosaic">
+            <p class="title">In The Beit Midrash</p>
+            <img
+              src="images/JF_015_BeitMidrash.jpg"
+              alt="In The Beit Midrash"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="tefillot">
+            <p class="title">Hadlakat Neirot Chanukah</p>
+            <img
+              src="images/Hadlakat Neirot Chanukah.png"
+              alt="Hadlakat Neirot Chanukah"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="tefillot">
+            <p class="title">Mishebeirach L'Chayalei Tzahal</p>
+            <img
+              src="images/JF_027_Mishebeirach.jpg"
+              alt="Mishebeirach L'Chayalei Tzahal"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="tefillot">
+            <p class="title">Tefillah L'Shalom Hamedina</p>
+            <img
+              src="images/JF_028_TefillahShalom.jpg"
+              alt="Tefillah L'Shalom Hamedina"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="tefillot">
+            <p class="title">Hadlakat Neirot</p>
+            <img
+              src="images/JF_032_HadlakatNeirot.jpg"
+              alt="Hadlakat Neirot"
+              class="gallery-img"
+            />
+          </div>
+          <div class="gallery-item" data-collection="tefillot">
+            <p class="title">Birkat Habayit</p>
+            <img
+              src="images/JF_033_AlHamichya.jpg"
+              alt="Al HaMichya"
+              class="gallery-img"
+            />
+          </div>
+          <!-- Add more gallery items here -->
+        </div>
+      </main>
+
+      <!-- Modal for large image view -->
+      <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img" />
+        <div id="caption"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
