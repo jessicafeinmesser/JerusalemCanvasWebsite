@@ -369,6 +369,22 @@ section {
   cursor: pointer;
 }
 
+/* Buttons */
+.popup-option {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #e3b9c4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.popup-option:hover {
+  background-color: #e3b9c4;
+}
+
 /*Services Page Carousel*/
 .carousel-images {
   display: flex;

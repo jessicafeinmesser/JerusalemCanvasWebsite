@@ -80,31 +80,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   //-------------------------------------------------
-  // Functionality for contact form submission
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent the default form submission
+  // Functionality for popup modal on services page
 
-      // Retrieve form data
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
+  // Get elements
+  const customCommissionButton = document.getElementById("commissionButton");
+  const popupModal = document.getElementById("popupModal");
+  const closeButton = document.querySelector(".close");
+  const whatsappButton = document.getElementById("whatsappButton");
+  const contactPageButton = document.getElementById("contactPageButton");
 
-      // Example of what you might do with the form data
-      console.log(`Name: ${name}`);
-      console.log(`Email: ${email}`);
-      console.log(`Message: ${message}`);
+  // Show the modal when the button is clicked
+  customCommissionButton.addEventListener("click", () => {
+    popupModal.style.display = "block";
+  });
 
-      // Show a response message
-      const responseDiv = document.getElementById("response");
-      responseDiv.textContent =
-        "Thank you for your message! We will get back to you shortly.";
+  // Close the modal when the close button is clicked
+  closeButton.addEventListener("click", () => {
+    popupModal.style.display = "none";
+  });
 
-      // Optionally, clear the form
-      contactForm.reset();
-    });
-  }
+  // Close the modal when clicking outside the modal content
+  window.addEventListener("click", (event) => {
+    if (event.target === popupModal) {
+      popupModal.style.display = "none";
+    }
+  });
+
+  // Redirect to WhatsApp when the WhatsApp button is clicked
+  whatsappButton.addEventListener("click", () => {
+    const phoneNumber = "7322814838"; // Replace with your WhatsApp number
+    const message = encodeURIComponent(
+      "Hi! I would like to order a custom commission."
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  });
+
+  // Redirect to the contact page when the Contact Page button is clicked
+  contactPageButton.addEventListener("click", () => {
+    window.location.href = "/contact.html"; // Replace with the actual contact page URL
+  });
+
   //------------------------------------------------------------
   // Functionality for image carousels
   const carousels = document.querySelectorAll(".carousel-images");
