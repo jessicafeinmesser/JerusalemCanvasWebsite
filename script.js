@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Redirect to WhatsApp when the WhatsApp button is clicked
   whatsappButton.addEventListener("click", () => {
-    const phoneNumber = "7322814838"; // Replace with your WhatsApp number
+    const phoneNumber = "17322814838"; // Replace with your WhatsApp number
     const message = encodeURIComponent(
       "Hi! I would like to order a custom commission."
     );
