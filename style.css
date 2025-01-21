@@ -79,10 +79,6 @@ header {
   flex-shrink: 0;
 }
 
-#thejerusalemcanvas {
-  display: none;
-}
-
 /* Navbar Styling */
 .nav-wrapper {
   display: flex; /* Horizontal alignment */
@@ -90,7 +86,7 @@ header {
   justify-content: space-between; /* Space between items */
   max-width: 80%; /* Constrain width of the nav */
   margin: 0 auto; /* Center the navbar */
-  padding: 10px 0;
+  padding: 0;
   position: relative; /* Reset to relative for large screens */
 }
 
@@ -104,6 +100,8 @@ header {
   transform: none; /* Reset transform to visible */
   transition: none; /* No transition on full screens */
   background: none; /* Remove background for full-screen menu */
+  overflow-y: auto;
+  max-height: 80vh;
 }
 
 .navItem {
@@ -188,98 +186,6 @@ button:hover,
   display: none; /* Hidden by default */
 }
 
-/* Responsive Adjustments (Small Screens) */
-@media (max-width: 1065px) {
-  /* Mobile version of the navbar */
-  .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    width: 100%;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .nav-list {
-    background-color: white; /* Full white background for the menu */
-    color: #333; /* Text color inside the menu */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99; /* Ensures it sits above other content */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-100%); /* Start hidden */
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 100%;
-    padding: 100px 10px; /* Adds padding at the top of the dropdown */
-  }
-
-  .navItem {
-    display: block;
-    margin: 0; /* Vertical spacing */
-    font-size: 1.2rem;
-    font-family: "Playfair Display", serif;
-    color: #333;
-    text-decoration: none;
-    text-align: center;
-    padding: 0px 20px;
-    width: 100%; /* Make each item take full width */
-  }
-
-  .nav-list li {
-    margin: 0; /* Remove any default spacing */
-    padding: 0px 20px; /* Add padding to vertically space buttons */
-    text-align: center;
-    width: 100%; /* Make each item take full width */
-    box-sizing: border-box; /* Ensures padding is included in width */
-  }
-
-  .nav-list a {
-    color: #333;
-    text-decoration: none;
-    padding: 10px 20px;
-    width: 100%; /* Make each item take full width */
-    display: block; /* Ensures block layout for full width items */
-  }
-
-  .nav-list a:hover {
-    background-color: rgba(245, 196, 196, 0.4);
-    transform: scale(1.05);
-    color: #333;
-  }
-
-  /* Show the hamburger button */
-  .hamburger {
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-
-  .hamburger .closeIcon {
-    display: block; /* Show the close icon when the menu is open */
-  }
-
-  .logo-container,
-  .nav-wrapper,
-  .media-buttons {
-    margin: 0;
-  }
-
-  .mediaButton {
-    margin: 0 5px;
-  }
-}
-/*------end media query for smaller screens---------------*/
-
 /* Show the menu when toggled */
 .showNavList {
   transform: translateY(30%); /* Slide the menu into view */
@@ -290,7 +196,7 @@ main {
   text-align: center;
   justify-content: center;
   margin: 0 auto; /* Center horizontally */
-  max-width: 60%;
+  max-width: 80%;
 }
 
 p {
@@ -384,7 +290,7 @@ section {
 }
 
 .story-paragraph {
-  text-align: justify;
+  text-align: center;
   max-width: 100%;
   background-color: rgba(
     255,
@@ -501,4 +407,148 @@ section {
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+/* Responsive Adjustments (Small Screens) */
+@media (max-width: 1065px) {
+  /* Mobile version of the navbar */
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-list {
+    background-color: white; /* Full white background for the menu */
+    color: #333; /* Text color inside the menu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99; /* Ensures it sits above other content */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateY(-150%); /* Start hidden */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    padding: 80px 10px; /* Adds padding at the top of the dropdown */
+    margin: 0 auto;
+  }
+
+  .navItem {
+    display: block;
+    margin: 0; /* Vertical spacing */
+    font-size: 1.2rem;
+    font-family: "Playfair Display", serif;
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px 20px;
+    width: 100%; /* Make each item take full width */
+  }
+
+  .nav-list li {
+    margin: 0; /* Remove any default spacing */
+    padding: 0px; /* Add padding to vertically space buttons */
+    text-align: center;
+    width: 60%; /* Make each item take full width */
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+
+  .nav-list a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    width: 100%; /* Make each item take full width */
+    display: block; /* Ensures block layout for full width items */
+  }
+
+  .nav-list a:hover {
+    background-color: rgba(245, 196, 196, 0.4);
+    transform: scale(1.05);
+    color: #333;
+  }
+
+  .showNavList {
+    transform: translateY(0);
+  }
+
+  /* Show the hamburger button */
+  .hamburger {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .hamburger .closeIcon {
+    display: block; /* Show the close icon when the menu is open */
+  }
+
+  .logo-container,
+  .nav-wrapper,
+  .media-buttons {
+    margin: 0;
+  }
+
+  .mediaButton {
+    margin: 0 5px;
+  }
+}
+/*------end media query for smaller screens---------------*/
+/*------Media query for phone screens---------------*/
+
+@media (max-width: 600px) {
+  header,
+  #indexHeader {
+    padding: 5px 10px; /* Reduce padding */
+    margin: 0; /* Remove unnecessary margin */
+  }
+  main,
+  section {
+    max-width: 90%; /* Expand content width */
+    padding: 10px; /* Adjust padding for small screens */
+  }
+
+  p {
+    line-height: 1.6; /* Adjust spacing for readability */
+    font-size: 1rem; /* Ensure font size is legible */
+  }
+
+  body {
+    font-size: 16px; /* Adjust base font size for mobile */
+  }
+
+  button,
+  .button,
+  .nav-list a {
+    padding: 12px 15px; /* Increase button padding for touch */
+    font-size: 1rem; /* Adjust button font size */
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of images */
+    justify-content: center; /* Centers images horizontally */
+    gap: 10px; /* Adjust spacing between images */
+  }
+  .gallery-grid {
+    max-width: 90%;
+  }
+  .gallery-item {
+    margin: 0 10px;
+    justify-content: center;
+  }
+
+  .gallery img {
+    max-width: 100%; /* Ensure images don't exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+  }
 }
