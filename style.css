@@ -347,17 +347,48 @@ section {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0;
+  left: 5;
   top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(232, 197, 213, 0.8);
+  width: 60%;
+  height: 40%;
+  background-color: rgba(66, 64, 65, 1);
 }
 
 .modal-content {
   margin: auto;
+  justify-content: center;
   max-width: 90%;
   max-height: 80%;
+}
+
+.modalText {
+  color: #ccc;
+  font-weight: bold;
+}
+
+.modal-description {
+  flex: 1;
+  text-align: left;
+}
+
+.modal-description p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.etsy-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.etsy-link:hover {
+  background-color: #0056b3;
 }
 
 .close {
