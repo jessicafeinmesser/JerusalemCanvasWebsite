@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   //------------------------------------------------
   // Get the modal, modal image, caption, and additional elements
-  const modal = document.getElementById("modal");
+  const modal = document.getElementById("gallery-modal");
   const modalImg = document.getElementById("modal-img");
   const captionText = document.getElementById("caption");
   const closeBtn = document.querySelector(".close");
