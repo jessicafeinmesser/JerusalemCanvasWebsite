@@ -376,6 +376,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // Elements for Commission Modal
   const commissionButton = document.getElementById("commissionButton");
   const commissionModal = document.getElementById("commissionModal");
+  if (commissionModal) {
+    const commissionClose = commissionModal.querySelector(".close");
+    if (commissionClose) {
+      commissionClose.addEventListener("click", () => {
+        commissionModal.style.display = "none";
+      });
+    }
+  }
   const commissionClose = commissionModal.querySelector(".close");
   const commissionWhatsAppButton = document.getElementById(
     "commissionWhatsAppButton"
