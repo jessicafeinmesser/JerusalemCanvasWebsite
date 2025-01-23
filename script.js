@@ -1,5 +1,13 @@
 // Wait for the DOM to fully load before executing the script
 document.addEventListener("DOMContentLoaded", () => {
+  //javascript to close sale banner
+  if (document.getElementById("close-banner")) {
+    document.getElementById("close-banner").addEventListener("click", () => {
+      const banner = document.getElementById("sale-banner");
+      banner.style.display = "none";
+    });
+  }
+
   // Hamburger menu functionality
   const menu = document.querySelector(".nav-list");
   const menuItems = document.querySelectorAll(".navItem");
@@ -293,28 +301,28 @@ document.addEventListener("DOMContentLoaded", () => {
       alt: "Mishebeirach L'Chayalei Tzahal",
       description:
         "A soldier praying at the Kotel, with the text of Mishebeirach L'Chayalei Tzahal, the prayer for the Israeli forces, hand-calligraphed.",
-      etsyLink: "./contact.html",
+      etsyLink: null, // No Etsy link, use WhatsApp
     },
     {
       src: "images/JF_028_TefillahShalom.jpg",
       alt: "Tefillah L'Shalom Hamedina",
       description:
         "A prayer for the State of Israel, hand-calligraphed on top of an Israeli flag.",
-      etsyLink: "./contact.html",
+      etsyLink: null, // No Etsy link, use WhatsApp
     },
     {
       src: "images/JF_032_HadlakatNeirot.jpg",
       alt: "Hadlakat Neirot",
       description:
-        "The text of Shabbat candelighting, hand-calligraphed on top of a bright, abstract candestick background.",
-      etsyLink: "./contact.html",
+        "The text of Shabbat candelighting, hand-calligraphed on top of a bright, abstract candlestick background.",
+      etsyLink: null, // Etsy link
     },
     {
       src: "images/JF_033_AlHamichya.jpg",
       alt: "Al HaMichya",
       description:
         "The text of Al Hamichya, hand-calligraphed, surrounded by the Shivat Haminim.",
-      etsyLink: "./contact.html",
+      etsyLink: null, // No Etsy link, use WhatsApp
     },
   ];
 
@@ -332,10 +340,18 @@ document.addEventListener("DOMContentLoaded", () => {
           matchedPainting.description || "Description not available.";
 
         if (matchedPainting.etsyLink) {
+          // Show Etsy link
           etsyButton.style.display = "inline-block";
           etsyButton.href = matchedPainting.etsyLink;
+          etsyButton.textContent = "View on Etsy";
         } else {
-          etsyButton.style.display = "none";
+          // Show WhatsApp link
+          const whatsappMessage = encodeURIComponent(
+            `Hi, I am interested in buying "${matchedPainting.alt}".`
+          );
+          etsyButton.style.display = "inline-block";
+          etsyButton.href = `https://wa.me/+17322814838?text=${whatsappMessage}`;
+          etsyButton.textContent = "Inquire on WhatsApp";
         }
       }
 

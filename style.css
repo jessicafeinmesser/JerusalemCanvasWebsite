@@ -1,3 +1,35 @@
+.sale-banner {
+  position: fixed; /* Sticks to the top of the page */
+  bottom: 0;
+  width: 95%;
+  background-color: #ffcccb; /* Light red background for attention */
+  color: #000; /* Black text for contrast */
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 18px;
+  z-index: 1000; /* Ensures it appears on top */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+.sale-banner p {
+  max-width: 90%;
+}
+.sale-banner .sale-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.sale-banner .close-banner {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+}
+
 /* FONTS */
 @font-face {
   font-family: "Playfair Display";
