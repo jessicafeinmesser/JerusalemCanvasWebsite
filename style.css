@@ -377,7 +377,7 @@ section {
 
 .modal-content {
   max-width: 90%; /* Ensure the image scales within the viewport */
-  max-height: 70%; /* Limit height to avoid overflow */
+  max-height: 60%; /* Limit height to avoid overflow */
   display: block; /* Make sure it's block-level */
   margin: 0 auto; /* Center horizontally */
   justify-content: center;
