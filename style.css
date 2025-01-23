@@ -309,6 +309,10 @@ section {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: minmax(
+    300px,
+    auto
+  ); /* Ensures consistent row height while adapting to the tallest item */
   gap: 30px;
   padding: 20px;
 }
@@ -319,9 +323,10 @@ section {
 
 .gallery-img {
   max-width: 100%;
-  object-fit: cover;
+  height: auto; /* Maintains aspect ratio */
+  object-fit: cover; /* Fills the grid space while maintaining aspect ratio */
   border: 2px solid #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for image */
 }
 
 .title {
@@ -344,26 +349,39 @@ section {
 
 /* Modal Styling */
 .gallery-modal {
-  display: none;
+  display: none; /* Hidden by default */
   position: fixed;
   z-index: 1000;
-  left: 5;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(66, 64, 65, 1);
+  background-color: rgba(66, 64, 65, 0.95); /* Semi-transparent background */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column; /* Stack children vertically */
 }
 
 .option-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
   width: 60%;
   height: 40%;
+  background-color: rgba(66, 64, 65, 0.95); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
-  margin: auto;
-  justify-content: center;
-  max-width: 90%;
-  max-height: 80%;
+  max-width: 90%; /* Ensure the image scales within the viewport */
+  max-height: 70%; /* Limit height to avoid overflow */
+  display: block; /* Make sure it's block-level */
+  margin: 0 auto; /* Center horizontally */
+  border-radius: 8px; /* Optional: rounded corners */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow */
 }
 
 .modalText {
@@ -371,20 +389,24 @@ section {
   font-weight: bold;
 }
 
+/* Styling the caption and description */
+#caption,
 .modal-description {
-  flex: 1;
-  text-align: left;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .modal-description p {
-  font-size: 16px;
-  margin-bottom: 20px;
+  font-size: 14px;
+  margin: 10px;
+  max-width: 90%;
 }
 
 .etsy-link {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #d88ea3;
   color: white;
   border: none;
   border-radius: 5px;
@@ -393,7 +415,7 @@ section {
 }
 
 .etsy-link:hover {
-  background-color: #0056b3;
+  background-color: #d3a2b0;
 }
 
 .close {
@@ -602,5 +624,7 @@ section {
   .gallery img {
     max-width: 100%; /* Ensure images don't exceed the container width */
     height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
+    max-height: 300px;
   }
 }

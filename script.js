@@ -1,7 +1,6 @@
 // Wait for the DOM to fully load before executing the script
 document.addEventListener("DOMContentLoaded", () => {
-  //hamburger button--------------------
-
+  // Hamburger menu functionality
   const menu = document.querySelector(".nav-list");
   const menuItems = document.querySelectorAll(".navItem");
   const hamburger = document.querySelector(".hamburger");
@@ -9,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuIcon = document.querySelector(".menuIcon");
 
   function toggleMenu() {
-    // Add/remove the "showNavList" class to toggle visibility
-
     if (menu.classList.contains("showNavList")) {
       menu.classList.remove("showNavList");
       closeIcon.style.display = "none";
@@ -22,13 +19,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  hamburger.addEventListener("click", toggleMenu);
+  if (hamburger) {
+    hamburger.addEventListener("click", toggleMenu);
+  }
 
-  menuItems.forEach(function (menuItem) {
+  menuItems.forEach((menuItem) => {
     menuItem.addEventListener("click", toggleMenu);
   });
-  //------------------------------------------------
-  // Get the modal, modal image, caption, and additional elements
+
+  // Functionality for filtering painting catalog
+  const dropdown = document.getElementById("collection-dropdown");
+  if (dropdown) {
+    dropdown.addEventListener("change", function () {
+      const selectedCollection = this.value;
+      const galleryItems = document.querySelectorAll(".gallery-item");
+
+      galleryItems.forEach((item) => {
+        if (
+          selectedCollection === "all" ||
+          item.dataset.collection === selectedCollection
+        ) {
+          item.style.display = "block"; // Show matching items
+        } else {
+          item.style.display = "none"; // Hide non-matching items
+        }
+      });
+    });
+  }
+
+  // Gallery modal functionality
   const modal = document.getElementById("gallery-modal");
   const modalImg = document.getElementById("modal-img");
   const captionText = document.getElementById("caption");
@@ -60,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
       alt: "Rav Herschel Schachter",
       description:
         "Colorful and unique portrait of the Rav Herschel Schachter. Each square in the background is individually hand painted, with the letters spelling out the verses from Shir Hashirim which were the inspiration for the titles of his sefarim.",
-      etsyLink: "#",
+      etsyLink:
+        "https://www.etsy.com/listing/1407326545/beautiful-unique-painting-of-rav?click_key=599212721e3e271629b63cff2968b59641c46722%3A1407326545&click_sum=08293c53&ref=items-pagination-18&frs=1",
     },
     {
       src: "images/JF_023_RavKookScan.jpg",
@@ -259,176 +279,187 @@ document.addEventListener("DOMContentLoaded", () => {
       alt: "In The Beit Midrash",
       description:
         "A painting that captures the vibrancy and energy of men learning Torah in a Beit Midrash.",
-      etsyLink: "#",
+      etsyLink: "./contact.html",
     },
     {
       src: "images/Hadlakat Neirot Chanukah.png",
       alt: "Hadlakat Neirot Chanukah",
       description:
         "A colorful, abstract rendition of a menorah, overlaid with the text of Chanukah lighting.",
-      etsyLink: "#",
+      etsyLink: "./contact.html",
     },
     {
       src: "images/JF_027_Mishebeirach.jpg",
       alt: "Mishebeirach L'Chayalei Tzahal",
       description:
         "A soldier praying at the Kotel, with the text of Mishebeirach L'Chayalei Tzahal, the prayer for the Israeli forces, hand-calligraphed.",
-      etsyLink: "#",
+      etsyLink: "./contact.html",
     },
     {
       src: "images/JF_028_TefillahShalom.jpg",
       alt: "Tefillah L'Shalom Hamedina",
       description:
         "A prayer for the State of Israel, hand-calligraphed on top of an Israeli flag.",
-      etsyLink: "#",
+      etsyLink: "./contact.html",
     },
     {
       src: "images/JF_032_HadlakatNeirot.jpg",
       alt: "Hadlakat Neirot",
       description:
         "The text of Shabbat candelighting, hand-calligraphed on top of a bright, abstract candestick background.",
-      etsyLink: "#",
+      etsyLink: "./contact.html",
     },
     {
       src: "images/JF_033_AlHamichya.jpg",
       alt: "Al HaMichya",
       description:
         "The text of Al Hamichya, hand-calligraphed, surrounded by the Shivat Haminim.",
-      etsyLink: "#",
+      etsyLink: "./contact.html",
     },
   ];
 
-  // Functionality for the image modal
-  if (modal && closeBtn) {
-    galleryImages.forEach((img, index) => {
-      img.addEventListener("click", () => {
-        modal.style.display = "block";
-        modalImg.src = img.src;
-        captionText.textContent = img.alt;
+  galleryImages.forEach((img) => {
+    img.addEventListener("click", (e) => {
+      const imgSrc = e.target.getAttribute("src");
+      const matchedPainting = paintingData.find(
+        (painting) => painting.src === imgSrc
+      );
 
-        // Update description and Etsy link
-        const painting = paintingData.find((p) => p.imgSrc === img.src);
-        if (painting) {
-          paintingDescription.textContent = painting.description;
-          etsyButton.href = painting.etsyLink;
-          etsyButton.style.display = "inline-block"; // Ensure button is visible
+      if (matchedPainting) {
+        modalImg.src = matchedPainting.src;
+        captionText.textContent = matchedPainting.alt;
+        paintingDescription.textContent =
+          matchedPainting.description || "Description not available.";
+
+        if (matchedPainting.etsyLink) {
+          etsyButton.style.display = "inline-block";
+          etsyButton.href = matchedPainting.etsyLink;
         } else {
-          paintingDescription.textContent = "Description not available.";
-          etsyButton.style.display = "none"; // Hide button if no link
+          etsyButton.style.display = "none";
         }
-      });
-    });
+      }
 
-    // Close the modal when the close button is clicked
+      modal.style.display = "block";
+    });
+  });
+
+  if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       modal.style.display = "none";
     });
-
-    // Close the modal when clicking outside the image
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  } else {
-    console.warn("Modal elements not found.");
   }
 
-  //-----------------------------------------------
-  // Functionality for filtering painting catalog
-  const dropdown = document.getElementById("collection-dropdown");
-  if (dropdown) {
-    dropdown.addEventListener("change", function () {
-      const selectedCollection = this.value;
-      const galleryItems = document.querySelectorAll(".gallery-item");
-
-      galleryItems.forEach((item) => {
-        if (
-          selectedCollection === "all" ||
-          item.dataset.collection === selectedCollection
-        ) {
-          item.style.display = "block"; // Show matching items
-        } else {
-          item.style.display = "none"; // Hide non-matching items
-        }
-      });
-    });
-  }
-
-  //-------------------------------------------------
-  // Functionality for popup modal on services page
-
-  // Get elements
-  const customCommissionButton = document.getElementById("commissionButton");
-  const popupModal = document.getElementById("popupModal");
-  const closeButton = document.querySelector(".close");
-  const whatsappButton = document.getElementById("whatsappButton");
-  const contactPageButton = document.getElementById("contactPageButton");
-
-  // Show the modal when the button is clicked
-  customCommissionButton.addEventListener("click", () => {
-    popupModal.style.display = "block";
-  });
-
-  // Close the modal when the close button is clicked
-  closeButton.addEventListener("click", () => {
-    popupModal.style.display = "none";
-  });
-
-  // Close the modal when clicking outside the modal content
-  window.addEventListener("click", (event) => {
-    if (event.target === popupModal) {
-      popupModal.style.display = "none";
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
     }
   });
 
-  // Redirect to WhatsApp when the WhatsApp button is clicked
-  whatsappButton.addEventListener("click", () => {
-    const phoneNumber = "+17322814838"; // Replace with your WhatsApp number
+  // Services page modal functionality--------------------------
+
+  // Elements for Commission Modal
+  const commissionButton = document.getElementById("commissionButton");
+  const commissionModal = document.getElementById("commissionModal");
+  const commissionClose = commissionModal.querySelector(".close");
+  const commissionWhatsAppButton = document.getElementById(
+    "commissionWhatsAppButton"
+  );
+  const commissionContactButton = document.getElementById(
+    "commissionContactButton"
+  );
+
+  // Elements for Monogram Modal
+  const monogramButton = document.getElementById("monogramButton");
+  const monogramModal = document.getElementById("monogramModal");
+  const monogramClose = monogramModal.querySelector(".close");
+  const monogramWhatsAppButton = document.getElementById(
+    "monogramWhatsAppButton"
+  );
+  const monogramContactButton = document.getElementById(
+    "monogramContactButton"
+  );
+
+  // Open Commission Modal
+  commissionButton.addEventListener("click", () => {
+    commissionModal.style.display = "flex";
+  });
+
+  // Close Commission Modal
+  commissionClose.addEventListener("click", () => {
+    commissionModal.style.display = "none";
+  });
+
+  // WhatsApp Redirect for Commission
+  commissionWhatsAppButton.addEventListener("click", () => {
+    const phoneNumber = "+17322814838";
     const message = encodeURIComponent(
       "Hi! I would like to order a custom commission."
     );
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   });
 
-  // Redirect to the contact page when the Contact Page button is clicked
-  contactPageButton.addEventListener("click", () => {
-    window.location.href = "/contact.html"; // Replace with the actual contact page URL
+  // Contact Page Redirect for Commission
+  commissionContactButton.addEventListener("click", () => {
+    window.location.href = "/contact.html"; // Replace with actual contact page URL
   });
 
-  //------------------------------------------------------------
-  // Functionality for image carousels
+  // Open Monogram Modal
+  monogramButton.addEventListener("click", () => {
+    monogramModal.style.display = "flex";
+  });
+
+  // Close Monogram Modal
+  monogramClose.addEventListener("click", () => {
+    monogramModal.style.display = "none";
+  });
+
+  // WhatsApp Redirect for Monogram
+  monogramWhatsAppButton.addEventListener("click", () => {
+    const phoneNumber = "+17322814838";
+    const message = encodeURIComponent(
+      "Hi! I would like to order a custom monogram."
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  });
+
+  // Contact Page Redirect for Monogram
+  monogramContactButton.addEventListener("click", () => {
+    window.location.href = "/contact.html"; // Replace with actual contact page URL
+  });
+
+  // Close Modals on Click Outside
+  window.addEventListener("click", (event) => {
+    if (event.target === commissionModal) {
+      commissionModal.style.display = "none";
+    }
+    if (event.target === monogramModal) {
+      monogramModal.style.display = "none";
+    }
+  });
+
+  //----------------------------------------------------------------
+
+  // Carousel functionality
   const carousels = document.querySelectorAll(".carousel-images");
-  if (carousels.length) {
-    carousels.forEach((carousel) => initializeAutoCarousel(carousel));
-  } else {
-    console.log("No carousels found on the page!");
-  }
 
-  // Initialize auto-rotation for carousels
-  function initializeAutoCarousel(carousel) {
+  carousels.forEach((carousel) => {
     const images = carousel.querySelectorAll(".carousel-image");
-
-    if (images.length) {
+    if (images.length > 0) {
       let currentIndex = 0;
+      const rotationInterval = 2000;
 
-      // Show the first image initially
-      showImage(images, currentIndex);
+      function showImage(index) {
+        images.forEach((img, i) => {
+          img.style.display = i === index ? "block" : "none";
+        });
+      }
 
-      // Set the carousel to automatically rotate
-      const rotationInterval = 2000; // 2 seconds
+      showImage(currentIndex);
+
       setInterval(() => {
         currentIndex = (currentIndex + 1) % images.length;
-        showImage(images, currentIndex);
+        showImage(currentIndex);
       }, rotationInterval);
-    } else {
-      console.error("No images found in the carousel:", carousel);
     }
-  }
-
-  function showImage(images, index) {
-    images.forEach((img, i) => {
-      img.style.display = i === index ? "block" : "none";
-    });
-  }
+  });
 });
