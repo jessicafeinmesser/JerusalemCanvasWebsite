@@ -380,6 +380,8 @@ section {
   max-height: 70%; /* Limit height to avoid overflow */
   display: block; /* Make sure it's block-level */
   margin: 0 auto; /* Center horizontally */
+  justify-content: center;
+  align-items: center;
   border-radius: 8px; /* Optional: rounded corners */
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow */
 }
@@ -387,20 +389,26 @@ section {
 .modalText {
   color: #ccc;
   font-weight: bold;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Styling the caption and description */
 #caption,
-.modal-description {
+.modal-description,
+.painting-description {
   color: white;
   text-align: center;
+  justify-content: center;
   margin-top: 10px;
 }
 
 .modal-description p {
   font-size: 14px;
-  margin: 10px;
-  max-width: 90%;
+  margin: 10px auto;
+  max-width: 60%;
+  text-align: center;
+  justify-content: center;
 }
 
 .etsy-link {
